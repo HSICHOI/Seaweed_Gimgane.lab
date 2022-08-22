@@ -1,4 +1,4 @@
-# Hyperspectral.lab
+# Hyperspectral.lab(Recent Trends of Hyperspectral Imaging Technology)
 
 
 
