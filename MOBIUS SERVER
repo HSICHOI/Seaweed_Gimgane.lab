@@ -1,0 +1,40 @@
+#install mobius on ubuntu 22.04
+##mysql
+
+sudo apt install mysql-server mysql-client
+sudo service mysql status
+
+## When password is forgotten / initial password setting
+$ sudo su
+mysqpl -u root -p
+Enter password(enter)
+mysql> use mysql;
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pw****';
+(mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'pw****'; x)
+
+
+mysql> flush privileges;
+mysql> exit;
+
+#mysql -u root -p   (root account  cautiou sudo mysql -u root -p)
+
+Enter password:(pw****)
+
+
+ref https://freestrokes.tistory.com/43
+
+
+## mobius
+sudo apt install npm
+sudo apt install nodejs
+
+git clone https://github.com/IoTKETI/Mobius.git
+cd Mobius
+npm install
+
+vi mobius.js
+global.usesemanticbroker    = '112.187.67.20'; --> IP번호
+
+###Check situation when mysql workbench cannot connect in Ubuntu environment
+bind-address           = 127.0.0.1
+bind-address            = 0.0.0.0
