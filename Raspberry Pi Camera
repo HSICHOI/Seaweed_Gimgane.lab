@@ -1,0 +1,37 @@
+# Raspberry Pi Camera
+
+ ###라파 카메라 포트 활성화
+ 기본 설정 -> Raspberry Pi Configuration  (root 권한 필요)    Disable -> Enable
+ 
+ 
+ ### 터미널 환경 설정
+ $ sudo raspi-config
+ 
+###카메라 연결 
+   - 전원 종료
+   $ sudo shutdown -h now
+
+### 전원 연결 후 라파 연결 확인 명령어
+vcgencmd get_camera 
+supported=1 detected=1  (연결 O)
+
+
+### mjpg-streamer(github)
+  $ git clone https://github.com/jacksonliam/mjpg-streamer.git
+ - 소스파일에 이동
+  $ cd mjpg-streamer/mjpg-streamer-experimental
+
+ - 컴파일
+  $ make distclean
+  $ make CMAKE_BUILD_TYPE=Debug
+  $ sudo make install
+  
+  
+  ### 스트리밍
+  mjpg-streamer/mjpg-streamer-experimental/에 있는 mjpg_streamer 명령
+  
+  $ export LD_LIBRARY_PATH=./mjpg-streamer/mjpg-streamer-experimental/
+  $ mjpg_streamer -o "output_http.so -w ./www -p 9090" -i "input_raspicam.so -fps 30 -preview"
+  
+  
+   
