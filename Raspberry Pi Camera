@@ -34,4 +34,6 @@ supported=1 detected=1  (연결 O)
   $ mjpg_streamer -o "output_http.so -w ./www -p 9090" -i "input_raspicam.so -fps 30 -preview"
   
   
+  https://dev-overload.tistory.com/43  
+  
    
